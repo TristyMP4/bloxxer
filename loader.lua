@@ -4,7 +4,7 @@ local Window = Rayfield:CreateWindow({
     Name = "BloxxerHub",
     Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
     LoadingTitle = "Initialising..",
-    LoadingSubtitle = "by traz",
+    LoadingSubtitle = "BloxxerHub - by traz",
     Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
  
     DisableRayfieldPrompts = false,
@@ -35,17 +35,66 @@ local Window = Rayfield:CreateWindow({
  })
 
  local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
+ local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
  local UniversalScripts = ScriptsTab:CreateSection("Universal")
 
- local flingButton = ScriptsTab:CreateButton({
-   Name = "Fling GUI",
+ local unloadButton = MiscTab:CreateButton({
+   Name = "Unload Hub",
    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/KAWAII-FREAKY-FLING/main/kawaii_freaky_fling.lua",true))()
+      Rayfield:Destroy()
    end,
 })
 
-print("a")
+local infiniteButton = ScriptsTab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Infinite Yield executed successfully.",
+         Duration = 1.5,
+         Image = "check",
+      })
+   end,
+})
 
-task.wait(50)
+local eclipseButton = ScriptsTab:CreateButton({
+   Name = "Eclipse Hub",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastebin.com/raw/TA6rDXnU"))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Eclipse Hub executed successfully.",
+         Duration = 1.5,
+         Image = "check",
+      })
+   end,
+})
 
-Rayfield:Destroy()
+local flingButton = ScriptsTab:CreateButton({
+   Name = "Fling GUI",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/KAWAII-FREAKY-FLING/main/kawaii_freaky_fling.lua",true))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Fling GUI executed successfully.",
+         Duration = 1.5,
+         Image = "check",
+      })
+   end,
+})
+
+local lunarButton = ScriptsTab:CreateButton({
+   Name = "Lunar Bot",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/probablYnicKxD/ProjectLunar/main/LunarBot/Source.lua"))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Lunar Bot executed successfully.",
+         Duration = 1.5,
+         Image = "check",
+      })
+   end,
+})
+
+print("hub loaded")
