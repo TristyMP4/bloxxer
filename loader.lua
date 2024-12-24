@@ -40,10 +40,35 @@ local Window = Rayfield:CreateWindow({
  local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
  local UniversalScripts = ScriptsTab:CreateSection("Universal")
 
- local unloadButton = MiscTab:CreateButton({
+local Input = Tab:CreateInput({
+   Name = "Input Example",
+   CurrentValue = "",
+   PlaceholderText = "Input Placeholder",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+   -- The function that takes place when the input is changed
+   -- The variable (Text) is a string for the value in the text box
+   end,
+})
+
+local unloadButton = MiscTab:CreateButton({
    Name = "Unload Hub",
    Callback = function()
       Rayfield:Destroy()
+   end,
+})
+
+local premEclipse = MiscTab:CreateInput({
+   Name = "Eclipse Prem Key",
+   CurrentValue = "",
+   PlaceholderText = "Enter Key",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+      getgenv().mainKey = Text
+
+      local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https\58//api.eclipsehub.xyz/auth";c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
    end,
 })
 
