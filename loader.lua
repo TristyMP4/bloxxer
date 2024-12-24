@@ -39,19 +39,7 @@ local Window = Rayfield:CreateWindow({
  local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
  local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
  local UniversalScripts = ScriptsTab:CreateSection("Universal")
-
-local Input = Tab:CreateInput({
-   Name = "Input Example",
-   CurrentValue = "",
-   PlaceholderText = "Input Placeholder",
-   RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
-   Callback = function(Text)
-   -- The function that takes place when the input is changed
-   -- The variable (Text) is a string for the value in the text box
-   end,
-})
-
+ 
 local unloadButton = MiscTab:CreateButton({
    Name = "Unload Hub",
    Callback = function()
