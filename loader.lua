@@ -1,5 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
+local notifDuration = 2
+
 local Window = Rayfield:CreateWindow({
     Name = "BloxxerHub",
     Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
@@ -52,7 +54,7 @@ local infiniteButton = ScriptsTab:CreateButton({
       Rayfield:Notify({
          Title = "Script Executed",
          Content = "Infinite Yield executed successfully.",
-         Duration = 1.5,
+         Duration = notifDuration,
          Image = "check",
       })
    end,
@@ -65,7 +67,7 @@ local eclipseButton = ScriptsTab:CreateButton({
       Rayfield:Notify({
          Title = "Script Executed",
          Content = "Eclipse Hub executed successfully.",
-         Duration = 1.5,
+         Duration = notifDuration,
          Image = "check",
       })
    end,
@@ -78,7 +80,7 @@ local flingButton = ScriptsTab:CreateButton({
       Rayfield:Notify({
          Title = "Script Executed",
          Content = "Fling GUI executed successfully.",
-         Duration = 1.5,
+         Duration = notifDuration,
          Image = "check",
       })
    end,
@@ -91,7 +93,7 @@ local lunarButton = ScriptsTab:CreateButton({
       Rayfield:Notify({
          Title = "Script Executed",
          Content = "Lunar Bot executed successfully.",
-         Duration = 1.5,
+         Duration = notifDuration,
          Image = "check",
       })
    end,
