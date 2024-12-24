@@ -37,7 +37,7 @@ local Window = Rayfield:CreateWindow({
  local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
  local UniversalScripts = ScriptsTab:CreateSection("Universal")
 
- local flingButton = UniversalScripts:CreateButton({
+ local flingButton = ScriptsTab:CreateButton({
    Name = "Fling GUI",
    Callback = function()
       loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/KAWAII-FREAKY-FLING/main/kawaii_freaky_fling.lua",true))()
