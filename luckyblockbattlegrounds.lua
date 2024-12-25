@@ -3,6 +3,7 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local notifDuration = 2
+local loadedKeys = loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys"))()
 
 local Window = Rayfield:CreateWindow({
     Name = "BloxxerHub",
@@ -30,11 +31,11 @@ local Window = Rayfield:CreateWindow({
     KeySettings = {
        Title = "BloxxerHub",
        Subtitle = "Key System",
-       Note = "Use the key you were provided.", -- Use this to tell the user how to get a key
+       Note = "Use the key you were provided with.", -- Use this to tell the user how to get a key
        FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
        SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-       GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-       Key = "https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys" -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = loadedKeys -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
     }
  })
 
