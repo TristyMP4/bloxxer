@@ -39,6 +39,7 @@ local Window = Rayfield:CreateWindow({
     }
  })
 
+ local GameTab = Window:CreateTab("Game", "gamepad-2") -- Title, Image
  local CharTab = Window:CreateTab("Character", "user") -- Title, Image
  local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
  local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
@@ -176,7 +177,6 @@ local Window = Rayfield:CreateWindow({
     end,
  })
 
-local GameTab = Window:CreateTab("Game", "gamepad-2") -- Title, Image
 local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
 print(game.PlaceId)
