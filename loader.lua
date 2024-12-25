@@ -3,6 +3,13 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local notifDuration = 2
 local loadedKeys = loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys.lua"))()
 
+Rayfield:Notify({
+   Title = "Loading!",
+   Content = "Please wait while we check authentication.",
+   Duration = notifDuration,
+   Image = "check",
+})
+
 function universal()
    local Window = Rayfield:CreateWindow({
       Name = "BloxxerHub",
