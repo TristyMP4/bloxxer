@@ -47,7 +47,7 @@ local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
 Rayfield:Notify({
    Title = "Loaded!",
-   Content = "Supported game detected: " .. game.Name .. "- Loaded Script!",
+   Content = "Supported game detected: " .. game.PlaceId .. "- Loaded Script!",
    Duration = notifDuration,
    Image = "check",
 })
