@@ -45,7 +45,6 @@ local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
 local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
 local movementCheats = CharTab:CreateSection("Movement")
 local UniversalScripts = ScriptsTab:CreateSection("Universal")
-local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
 print(game.PlaceId)
 
@@ -64,7 +63,7 @@ else
 end
 
 local walkspeedSlider = CharTab:CreateSlider({
-   Name = "Walkspeed",
+   Name = "WalkSpeed",
    Range = {0, 500},
    Increment = 1,
    Suffix = "WalkSpeed",
@@ -87,6 +86,20 @@ local jumpPowerSlider = CharTab:CreateSlider({
    end,
 })
 
+local tptoPlayer = CharTab:CreateInput({
+   Name = "Teleport to Player",
+   CurrentValue = "",
+   PlaceholderText = "DisplayName or Username",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+      for i, player in Players:GetChildren() do
+         if string.lower(player.Name) == string.lower(Text) or string.lower(player.DisplayName) == string.lower(Text) then
+            Players.LocalPlayer.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame
+         end
+      end
+   end,
+})
 
 local unloadButton = MiscTab:CreateButton({
    Name = "Unload Hub",
@@ -172,6 +185,8 @@ local lunarButton = ScriptsTab:CreateButton({
       })
    end,
 })
+
+local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
 local superBlock = GameTab:CreateButton({
    Name = "Give Super Block",
