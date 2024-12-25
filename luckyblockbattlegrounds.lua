@@ -46,6 +46,7 @@ local UniversalScripts = ScriptsTab:CreateSection("Universal")
 local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
 print(game.PlaceId)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/defaults.lua"))()
 
 Rayfield:Notify({
    Title = "Loaded!",
