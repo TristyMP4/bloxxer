@@ -5,13 +5,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local notifDuration = 2
 local loadedKeys = loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys.lua"))()
 
-Rayfield:Notify({
-   Title = "Loading!",
-   Content = "Please wait while we check authentication.",
-   Duration = notifDuration,
-   Image = "check",
-})
-
 local Window = Rayfield:CreateWindow({
     Name = "BloxxerHub",
     Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
@@ -83,7 +76,14 @@ local mainCheats = GameTab:CreateSection("Main")
 local killAll = GameTab:CreateButton({
     Name = "Kill All (HexSpitter)",
     Callback = function()
-        local HexSpitter = Players.LocalPlayer.Character.HexSpitter
+      Rayfield:Notify({
+         Title = "Executing Script",
+         Content = "Killing everyone, this might take a bit!",
+         Duration = notifDuration,
+         Image = "check",
+      })
+
+      local HexSpitter = Players.LocalPlayer.Character.HexSpitter
 		local ServerControl = HexSpitter.Remotes.ServerControl
 		for _ = 1,20 do
 			for _, Child in next, game.Players:GetPlayers() do
@@ -92,12 +92,12 @@ local killAll = GameTab:CreateButton({
 				end
 			end
 		end
-        Rayfield:Notify({
-            Title = "Script Executed",
-            Content = "Killed Everyone successfully.",
-            Duration = notifDuration,
-            Image = "check",
-         })
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Killed everyone successfully.",
+         Duration = notifDuration,
+         Image = "check",
+      })
     end,
  })
 
@@ -105,11 +105,12 @@ local teleportCheats = GameTab:CreateSection("Teleports")
 local base = nil
 
 function getBase()
-   for i, instance in game.Workspace:GetDescendants() do
-      if instance:IsA("StringValue") then
-         if instance.Name == "Owner" then
-            if instance.Value == Players.LocalPlayer.Name then
-               base = instance.Parent
+   for i, item in game.Workspace:GetDescendants() do
+      if item:IsA("StringValue") then
+         if item.Name == "Owner" then
+            if item.Value == Players.LocalPlayer.Name then
+               base = item.Parent
+               print(item.Parent.Name)
             end
          end
       end
