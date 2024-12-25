@@ -43,6 +43,7 @@ local Window = Rayfield:CreateWindow({
  local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
  local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
  local UniversalScripts = ScriptsTab:CreateSection("Universal")
+ local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
 local superBlock = GameTab:CreateButton({
    Name = "Give Super Block",
@@ -54,6 +55,19 @@ local superBlock = GameTab:CreateButton({
             Duration = notifDuration,
             Image = "check",
          })
+   end,
+})
+
+local multiSuperBlock = GameTab:CreateInput({
+   Name = "Give Multiple Super Block",
+   CurrentValue = "5",
+   PlaceholderText = "5",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+      for _ = 1,tonumber(Text) do
+         ReplicatedStorage.SpawnSuperBlock:FireServer()
+      end
    end,
 })
 
