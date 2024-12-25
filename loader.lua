@@ -116,6 +116,7 @@ function universal()
 end
 
 if game.PlaceId == "662417684" then
+   print("battlegrounds")
    loadstring(game:HttpGet('https://github.com/TristyMP4/bloxxer/raw/refs/heads/main/luckyblockbattlegrounds.lua'))()
 else
    universal()
