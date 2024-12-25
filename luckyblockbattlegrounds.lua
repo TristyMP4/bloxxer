@@ -87,6 +87,92 @@ local jumpPowerSlider = CharTab:CreateSlider({
    end,
 })
 
+
+local unloadButton = MiscTab:CreateButton({
+   Name = "Unload Hub",
+   Callback = function()
+      Rayfield:Destroy()
+   end,
+})
+
+local reloadButton = MiscTab:CreateButton({
+   Name = "Reload Hub",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/loader.lua"))()
+      Rayfield:Destroy()
+   end,
+})
+
+local premEclipse = MiscTab:CreateInput({
+   Name = "Eclipse Prem Key",
+   CurrentValue = "",
+   PlaceholderText = "Enter Key",
+   RemoveTextAfterFocusLost = false,
+   Flag = "eclipsePremKey",
+   Callback = function(Text)
+      getgenv().mainKey = Text
+      loadstring(game:HttpGet("https://pastebin.com/raw/avs78BWz"))()
+      Rayfield:Notify({
+        Title = "Script Executed",
+        Content = "Eclipse Hub with premium executed successfully.",
+        Duration = notifDuration,
+        Image = "check",
+     })
+   end,
+})
+
+local infiniteButton = ScriptsTab:CreateButton({
+   Name = "Infinite Yield",
+   Callback = function()
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Infinite Yield executed successfully.",
+         Duration = notifDuration,
+         Image = "check",
+      })
+   end,
+})
+
+local eclipseButton = ScriptsTab:CreateButton({
+   Name = "Eclipse Hub",
+   Callback = function()
+      loadstring(game:HttpGet("https://pastebin.com/raw/TA6rDXnU"))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Eclipse Hub executed successfully.",
+         Duration = notifDuration,
+         Image = "check",
+      })
+   end,
+})
+
+local flingButton = ScriptsTab:CreateButton({
+   Name = "Fling GUI",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/KAWAII-FREAKY-FLING/main/kawaii_freaky_fling.lua",true))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Fling GUI executed successfully.",
+         Duration = notifDuration,
+         Image = "check",
+      })
+   end,
+})
+
+local lunarButton = ScriptsTab:CreateButton({
+   Name = "Lunar Bot",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/probablYnicKxD/ProjectLunar/main/LunarBot/Source.lua"))()
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Lunar Bot executed successfully.",
+         Duration = notifDuration,
+         Image = "check",
+      })
+   end,
+})
+
 local superBlock = GameTab:CreateButton({
    Name = "Give Super Block",
    Callback = function()
@@ -192,90 +278,5 @@ local centerTeleport = GameTab:CreateButton({
          })
     end,
  })
-
-local unloadButton = MiscTab:CreateButton({
-   Name = "Unload Hub",
-   Callback = function()
-      Rayfield:Destroy()
-   end,
-})
-
-local reloadButton = MiscTab:CreateButton({
-   Name = "Reload Hub",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/loader.lua"))()
-      Rayfield:Destroy()
-   end,
-})
-
-local premEclipse = MiscTab:CreateInput({
-   Name = "Eclipse Prem Key",
-   CurrentValue = "",
-   PlaceholderText = "Enter Key",
-   RemoveTextAfterFocusLost = false,
-   Flag = "eclipsePremKey",
-   Callback = function(Text)
-      getgenv().mainKey = Text
-      loadstring(game:HttpGet("https://pastebin.com/raw/avs78BWz"))()
-      Rayfield:Notify({
-        Title = "Script Executed",
-        Content = "Eclipse Hub with premium executed successfully.",
-        Duration = notifDuration,
-        Image = "check",
-     })
-   end,
-})
-
-local infiniteButton = ScriptsTab:CreateButton({
-   Name = "Infinite Yield",
-   Callback = function()
-      loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-      Rayfield:Notify({
-         Title = "Script Executed",
-         Content = "Infinite Yield executed successfully.",
-         Duration = notifDuration,
-         Image = "check",
-      })
-   end,
-})
-
-local eclipseButton = ScriptsTab:CreateButton({
-   Name = "Eclipse Hub",
-   Callback = function()
-      loadstring(game:HttpGet("https://pastebin.com/raw/TA6rDXnU"))()
-      Rayfield:Notify({
-         Title = "Script Executed",
-         Content = "Eclipse Hub executed successfully.",
-         Duration = notifDuration,
-         Image = "check",
-      })
-   end,
-})
-
-local flingButton = ScriptsTab:CreateButton({
-   Name = "Fling GUI",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/KAWAII-FREAKY-FLING/main/kawaii_freaky_fling.lua",true))()
-      Rayfield:Notify({
-         Title = "Script Executed",
-         Content = "Fling GUI executed successfully.",
-         Duration = notifDuration,
-         Image = "check",
-      })
-   end,
-})
-
-local lunarButton = ScriptsTab:CreateButton({
-   Name = "Lunar Bot",
-   Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/probablYnicKxD/ProjectLunar/main/LunarBot/Source.lua"))()
-      Rayfield:Notify({
-         Title = "Script Executed",
-         Content = "Lunar Bot executed successfully.",
-         Duration = notifDuration,
-         Image = "check",
-      })
-   end,
-})
 
 print("hub loaded")
