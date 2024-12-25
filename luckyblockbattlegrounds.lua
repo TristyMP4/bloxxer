@@ -63,11 +63,11 @@ else
    jumpMeasurement = "JumpHeight"
 end
 
-local walkspeedSlider = GameTab:CreateSlider({
+local walkspeedSlider = CharTab:CreateSlider({
    Name = "Walkspeed",
    Range = {0, 500},
    Increment = 1,
-   Suffix = "Bananas",
+   Suffix = "WalkSpeed",
    CurrentValue = Players.LocalPlayer.Character.Humanoid.WalkSpeed,
    Flag = "walkSpeed", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
@@ -75,11 +75,11 @@ local walkspeedSlider = GameTab:CreateSlider({
    end,
 })
 
-local jumpPowerSlider = GameTab:CreateSlider({
+local jumpPowerSlider = CharTab:CreateSlider({
    Name = "JumpPower",
    Range = {0, 500},
    Increment = 1,
-   Suffix = "Bananas",
+   Suffix = jumpMeasurement,
    CurrentValue = Players.LocalPlayer.Character.Humanoid[jumpMeasurement],
    Flag = "jumpPower", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
