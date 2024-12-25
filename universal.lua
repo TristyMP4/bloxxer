@@ -176,4 +176,4 @@ function universal()
       end,
    })
 
-   return Rayfield, notifDuration, ScriptsTab, MiscTab end
+   return Rayfield, Window, notifDuration, ScriptsTab, MiscTab end
