@@ -39,11 +39,11 @@ local Window = Rayfield:CreateWindow({
     }
  })
 
- local GameTab = Window:CreateTab("Game", "gamepad-2") -- Title, Image
- local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
- local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
- local UniversalScripts = ScriptsTab:CreateSection("Universal")
- local blockCheats = GameTab:CreateSection("Lucky Blocks")
+local GameTab = Window:CreateTab("Game", "gamepad-2") -- Title, Image
+local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
+local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
+local UniversalScripts = ScriptsTab:CreateSection("Universal")
+local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
 local superBlock = GameTab:CreateButton({
    Name = "Give Super Block",
@@ -71,6 +71,8 @@ local multiSuperBlock = GameTab:CreateInput({
    end,
 })
 
+local mainCheats = GameTab:CreateSection("Main")
+
 local killAll = GameTab:CreateButton({
     Name = "Kill All (HexSpitter)",
     Callback = function()
@@ -91,6 +93,42 @@ local killAll = GameTab:CreateButton({
          })
     end,
  })
+
+local teleportCheats = GameTab:CreateSection("Teleports")
+local base = nil
+
+function getBase()
+   for i, instance in game.Workspace:GetDescendants() do
+      if instance:IsA("StringValue") then
+         if instance.Name == "Owner" then
+            if instance.Value == Players.LocalPlayer.Name then
+               base = instance.Parent
+            end
+         end
+      end
+   end
+end
+
+local baseTeleport = GameTab:CreateButton({
+   Name = "Teleport to Base",
+   Callback = function()
+      local function teleportBase()
+         Players.LocalPlayer.Character.HumanoidRootPart.CFrame = base.SpawnLocation
+         Rayfield:Notify({
+            Title = "Teleported!",
+            Content = "Teleported to Center successfully.",
+            Duration = notifDuration,
+            Image = "check",
+         })
+      end
+      if base then
+         teleportBase()
+      else
+         getBase()
+         teleportBase()
+      end
+   end,
+})
 
 local centerTeleport = GameTab:CreateButton({
     Name = "Teleport to Center",
