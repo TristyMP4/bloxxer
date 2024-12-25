@@ -45,9 +45,11 @@ local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
 local UniversalScripts = ScriptsTab:CreateSection("Universal")
 local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
+print(game.PlaceId, game.Name)
+
 Rayfield:Notify({
    Title = "Loaded!",
-   Content = "Supported game detected: " .. game.PlaceId .. "- Loaded Script!",
+   Content = "Supported game detected: " .. game.PlaceId .. " - Loaded Script!",
    Duration = notifDuration,
    Image = "check",
 })
