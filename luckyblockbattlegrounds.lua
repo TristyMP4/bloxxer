@@ -45,6 +45,13 @@ local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
 local UniversalScripts = ScriptsTab:CreateSection("Universal")
 local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
+Rayfield:Notify({
+   Title = "Loaded!",
+   Content = "Supported game detected: " .. game.Name .. "- Loaded Script!",
+   Duration = notifDuration,
+   Image = "check",
+})
+
 local superBlock = GameTab:CreateButton({
    Name = "Give Super Block",
    Callback = function()
@@ -124,7 +131,7 @@ local baseTeleport = GameTab:CreateButton({
          Players.LocalPlayer.Character.HumanoidRootPart.CFrame = base.SpawnLocation.CFrame
          Rayfield:Notify({
             Title = "Teleported!",
-            Content = "Teleported to Center successfully.",
+            Content = "Teleported to Base successfully.",
             Duration = notifDuration,
             Image = "check",
          })
