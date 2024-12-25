@@ -165,6 +165,15 @@ local unloadButton = MiscTab:CreateButton({
    end,
 })
 
+local reloadButton = MiscTab:CreateButton({
+   Name = "Reload Hub",
+   Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/loader.lua"))()
+      task.wait()
+      Rayfield:Destroy()
+   end,
+})
+
 local premEclipse = MiscTab:CreateInput({
    Name = "Eclipse Prem Key",
    CurrentValue = "",
