@@ -40,8 +40,10 @@ local Window = Rayfield:CreateWindow({
  })
 
 local GameTab = Window:CreateTab("Game", "gamepad-2") -- Title, Image
+local CharTab = Window:CreateTab("Character", "user") -- Title, Image
 local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
 local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
+local movementCheats = GameTab:CreateSection("Movement")
 local UniversalScripts = ScriptsTab:CreateSection("Universal")
 local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
@@ -52,6 +54,37 @@ Rayfield:Notify({
    Content = "Supported game detected: " .. game.PlaceId .. " - Loaded Script!",
    Duration = notifDuration,
    Image = "check",
+})
+
+local jumpMeasurement = nil
+if game.StarterPlayer.CharacterUseJumpPower then
+   jumpMeasurement = "JumpPower"
+else
+   jumpMeasurement = "JumpHeight"
+end
+
+local walkspeedSlider = GameTab:CreateSlider({
+   Name = "Walkspeed",
+   Range = {0, 500},
+   Increment = 1,
+   Suffix = "Bananas",
+   CurrentValue = Players.LocalPlayer.Character.Humanoid.WalkSpeed,
+   Flag = "walkSpeed", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+   end,
+})
+
+local jumpPowerSlider = GameTab:CreateSlider({
+   Name = "JumpPower",
+   Range = {0, 500},
+   Increment = 1,
+   Suffix = "Bananas",
+   CurrentValue = Players.LocalPlayer.Character.Humanoid[jumpMeasurement],
+   Flag = "jumpPower", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+      Players.LocalPlayer.Character.Humanoid[jumpMeasurement] = Value
+   end,
 })
 
 local superBlock = GameTab:CreateButton({
@@ -72,7 +105,7 @@ local multiSuperBlock = GameTab:CreateInput({
    CurrentValue = "5",
    PlaceholderText = "5",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
+   Flag = "multipleSuperBlock",
    Callback = function(Text)
       for _ = 1,tonumber(Text) do
          ReplicatedStorage.SpawnSuperBlock:FireServer()
@@ -180,7 +213,7 @@ local premEclipse = MiscTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Enter Key",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
+   Flag = "eclipsePremKey",
    Callback = function(Text)
       getgenv().mainKey = Text
       loadstring(game:HttpGet("https://pastebin.com/raw/avs78BWz"))()
