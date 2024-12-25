@@ -5,6 +5,13 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local notifDuration = 2
 local loadedKeys = loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys.lua"))()
 
+Rayfield:Notify({
+   Title = "Loading!",
+   Content = "Please wait while we check authentication.",
+   Duration = notifDuration,
+   Image = "check",
+})
+
 local Window = Rayfield:CreateWindow({
     Name = "BloxxerHub",
     Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
@@ -113,7 +120,7 @@ local baseTeleport = GameTab:CreateButton({
    Name = "Teleport to Base",
    Callback = function()
       local function teleportBase()
-         Players.LocalPlayer.Character.HumanoidRootPart.CFrame = base.SpawnLocation
+         Players.LocalPlayer.Character.HumanoidRootPart.CFrame = base.SpawnLocation.CFrame
          Rayfield:Notify({
             Title = "Teleported!",
             Content = "Teleported to Center successfully.",
