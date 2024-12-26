@@ -163,6 +163,27 @@ local Window = Rayfield:CreateWindow({
        })
     end,
  })
+
+ local hydroxideButton = ScriptsTab:CreateButton({
+   Name = "Hydroxide",
+   Callback = function()
+      local owner = "Upbolt"
+      local branch = "revision"
+
+      local function webImport(file)
+         return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+      end
+      webImport("init")
+      webImport("ui/main")
+
+      Rayfield:Notify({
+         Title = "Script Executed",
+         Content = "Hydroxide GUI executed successfully.",
+         Duration = notifDuration,
+         Image = "check",
+      })
+   end,
+})
  
  local lunarButton = ScriptsTab:CreateButton({
     Name = "Lunar Bot",
