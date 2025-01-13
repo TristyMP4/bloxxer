@@ -17,8 +17,8 @@ function universal()
    
       ConfigurationSaving = {
          Enabled = true,
-         FolderName = nil, -- Create a custom folder for your hub/game
-         FileName = "bloxxerhub"
+         FolderName = "bloxxerhub", -- Create a custom folder for your hub/game
+         FileName = "hub"
       },
    
       Discord = {
@@ -103,6 +103,15 @@ function universal()
       Callback = function()
          loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/loader.lua"))()
          Rayfield:Destroy()
+      end,
+   })
+
+   local autoYield = MiscTab:CreateToggle({
+      Name = "AutoExec InfYield",
+      CurrentValue = false,
+      Flag = "autoYield", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+      Callback = function(Value)
+         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
       end,
    })
    
@@ -197,6 +206,7 @@ function universal()
       end,
    })
   
+  Rayfield:LoadConfiguration()
   print("hub loaded")
 end
 
