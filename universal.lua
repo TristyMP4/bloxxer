@@ -42,7 +42,6 @@ local CharTab = Window:CreateTab("Character", "user") -- Title, Image
 local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
 local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
 local movementCheats = CharTab:CreateSection("Movement")
-local UniversalScripts = ScriptsTab:CreateSection("Universal")
    
 local jumpMeasurement = nil
 if game.StarterPlayer.CharacterUseJumpPower then
@@ -131,6 +130,8 @@ local premEclipse = MiscTab:CreateInput({
         })
       end,
 })
+
+local FunScripts = ScriptsTab:CreateSection("Fun")
    
 local infiniteButton = ScriptsTab:CreateButton({
       Name = "Infinite Yield",
@@ -171,6 +172,21 @@ local flingButton = ScriptsTab:CreateButton({
       end,
 })
 
+local lunarButton = ScriptsTab:CreateButton({
+      Name = "Lunar Bot",
+      Callback = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/probablYnicKxD/ProjectLunar/main/LunarBot/Source.lua"))()
+         Rayfield:Notify({
+            Title = "Script Executed",
+            Content = "Lunar Bot executed successfully.",
+            Duration = notifDuration,
+            Image = "check",
+         })
+      end,
+})
+
+local MiscScripts = ScriptsTab:CreateSection("Miscellaneous")
+
 local hydroxideButton = ScriptsTab:CreateButton({
       Name = "Hydroxide",
       Callback = function()
@@ -186,19 +202,6 @@ local hydroxideButton = ScriptsTab:CreateButton({
          Rayfield:Notify({
             Title = "Script Executed",
             Content = "Hydroxide GUI executed successfully.",
-            Duration = notifDuration,
-            Image = "check",
-         })
-      end,
-})
-   
-local lunarButton = ScriptsTab:CreateButton({
-      Name = "Lunar Bot",
-      Callback = function()
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/probablYnicKxD/ProjectLunar/main/LunarBot/Source.lua"))()
-         Rayfield:Notify({
-            Title = "Script Executed",
-            Content = "Lunar Bot executed successfully.",
             Duration = notifDuration,
             Image = "check",
          })
