@@ -37,6 +37,12 @@ local multiSuperBlock = GameTab:CreateInput({
       for _ = 1,tonumber(Text) do
          ReplicatedStorage.SpawnSuperBlock:FireServer()
       end
+	Rayfield:Notify({
+            Title = "Script Executed",
+            Content = "Spawned " .. tonumber(Text) .. " Super Blocks successfully.",
+            Duration = notifDuration,
+            Image = "check",
+         })
    end,
 })
 
