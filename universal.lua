@@ -36,22 +36,22 @@ local Window = Rayfield:CreateWindow({
          GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
          Key = loadedKeys -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
       }
-   })
+})
 
-   local CharTab = Window:CreateTab("Character", "user") -- Title, Image
-   local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
-   local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
-   local movementCheats = CharTab:CreateSection("Movement")
-   local UniversalScripts = ScriptsTab:CreateSection("Universal")
+local CharTab = Window:CreateTab("Character", "user") -- Title, Image
+local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
+local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
+local movementCheats = CharTab:CreateSection("Movement")
+local UniversalScripts = ScriptsTab:CreateSection("Universal")
    
-   local jumpMeasurement = nil
-   if game.StarterPlayer.CharacterUseJumpPower then
+local jumpMeasurement = nil
+if game.StarterPlayer.CharacterUseJumpPower then
       jumpMeasurement = "JumpPower"
-   else
+else
       jumpMeasurement = "JumpHeight"
-   end
+end
    
-   local walkspeedSlider = CharTab:CreateSlider({
+local walkspeedSlider = CharTab:CreateSlider({
       Name = "WalkSpeed",
       Range = {0, 500},
       Increment = 1,
@@ -59,11 +59,11 @@ local Window = Rayfield:CreateWindow({
       CurrentValue = Players.LocalPlayer.Character.Humanoid.WalkSpeed,
       Flag = "walkSpeed", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
       Callback = function(Value)
-         Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+            Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
       end,
-   })
+})
    
-   local jumpPowerSlider = CharTab:CreateSlider({
+local jumpPowerSlider = CharTab:CreateSlider({
       Name = "JumpPower",
       Range = {0, 500},
       Increment = 1,
@@ -73,9 +73,9 @@ local Window = Rayfield:CreateWindow({
       Callback = function(Value)
          Players.LocalPlayer.Character.Humanoid[jumpMeasurement] = Value
       end,
-   })
+})
    
-   local tptoPlayer = CharTab:CreateInput({
+local tptoPlayer = CharTab:CreateInput({
       Name = "Teleport to Player",
       CurrentValue = "",
       PlaceholderText = "DisplayName or Username",
@@ -88,33 +88,33 @@ local Window = Rayfield:CreateWindow({
             end
          end
       end,
-   })
+})
    
-   local unloadButton = MiscTab:CreateButton({
+local unloadButton = MiscTab:CreateButton({
       Name = "Unload Hub",
       Callback = function()
          Rayfield:Destroy()
       end,
-   })
+})
    
-   local reloadButton = MiscTab:CreateButton({
+local reloadButton = MiscTab:CreateButton({
       Name = "Reload Hub",
       Callback = function()
          loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/loader.lua"))()
          Rayfield:Destroy()
       end,
-   })
+})
 
-   local autoYield = MiscTab:CreateToggle({
+local autoYield = MiscTab:CreateToggle({
       Name = "AutoExec InfYield",
       CurrentValue = false,
       Flag = "autoYield", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
       Callback = function(Value)
          loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
       end,
-   })
+})
    
-   local premEclipse = MiscTab:CreateInput({
+local premEclipse = MiscTab:CreateInput({
       Name = "Eclipse Prem Key",
       CurrentValue = "",
       PlaceholderText = "Enter Key",
@@ -130,9 +130,9 @@ local Window = Rayfield:CreateWindow({
            Image = "check",
         })
       end,
-   })
+})
    
-   local infiniteButton = ScriptsTab:CreateButton({
+local infiniteButton = ScriptsTab:CreateButton({
       Name = "Infinite Yield",
       Callback = function()
          loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
@@ -143,9 +143,9 @@ local Window = Rayfield:CreateWindow({
             Image = "check",
          })
       end,
-   })
+})
    
-   local eclipseButton = ScriptsTab:CreateButton({
+local eclipseButton = ScriptsTab:CreateButton({
       Name = "Eclipse Hub",
       Callback = function()
          loadstring(game:HttpGet("https://pastebin.com/raw/TA6rDXnU"))()
@@ -156,9 +156,9 @@ local Window = Rayfield:CreateWindow({
             Image = "check",
          })
       end,
-   })
+})
    
-   local flingButton = ScriptsTab:CreateButton({
+local flingButton = ScriptsTab:CreateButton({
       Name = "Fling GUI",
       Callback = function()
          loadstring(game:HttpGet("https://raw.githubusercontent.com/hellohellohell012321/KAWAII-FREAKY-FLING/main/kawaii_freaky_fling.lua",true))()
@@ -169,9 +169,9 @@ local Window = Rayfield:CreateWindow({
             Image = "check",
          })
       end,
-   })
+})
 
-   local hydroxideButton = ScriptsTab:CreateButton({
+local hydroxideButton = ScriptsTab:CreateButton({
       Name = "Hydroxide",
       Callback = function()
          local owner = "Upbolt"
@@ -190,9 +190,9 @@ local Window = Rayfield:CreateWindow({
             Image = "check",
          })
       end,
-   })
+})
    
-   local lunarButton = ScriptsTab:CreateButton({
+local lunarButton = ScriptsTab:CreateButton({
       Name = "Lunar Bot",
       Callback = function()
          loadstring(game:HttpGet("https://raw.githubusercontent.com/probablYnicKxD/ProjectLunar/main/LunarBot/Source.lua"))()
@@ -203,9 +203,9 @@ local Window = Rayfield:CreateWindow({
             Image = "check",
          })
       end,
-   })
+})
   
-  Rayfield:LoadConfiguration()
-  print("hub loaded")
+Rayfield:LoadConfiguration()
+print("hub loaded")
 
-  return Rayfield, Window, ScriptsTab, notifDuration
+return Rayfield
