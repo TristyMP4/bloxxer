@@ -110,9 +110,7 @@ local autoYield = MiscTab:CreateToggle({
       CurrentValue = false,
       Flag = "autoYield", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
       Callback = function(Value)
-         if value then 
-               loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()   
-         end
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()   
       end,
 })
    
