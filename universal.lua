@@ -53,7 +53,7 @@ end
    
 local walkspeedSlider = CharTab:CreateSlider({
       Name = "WalkSpeed",
-      Range = {0, 500},
+      Range = {10, 500},
       Increment = 1,
       Suffix = "WalkSpeed",
       CurrentValue = Players.LocalPlayer.Character.Humanoid.WalkSpeed,
@@ -65,7 +65,7 @@ local walkspeedSlider = CharTab:CreateSlider({
    
 local jumpPowerSlider = CharTab:CreateSlider({
       Name = "JumpPower",
-      Range = {0, 500},
+      Range = {10, 500},
       Increment = 1,
       Suffix = jumpMeasurement,
       CurrentValue = Players.LocalPlayer.Character.Humanoid[jumpMeasurement],
