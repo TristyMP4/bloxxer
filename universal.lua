@@ -122,7 +122,7 @@ local premEclipse = MiscTab:CreateInput({
       Flag = "eclipsePremKey",
       Callback = function(Text)
          getgenv().mainKey = Text
-         loadstring(game:HttpGet("https://pastebin.com/raw/avs78BWz"))()
+         loadstring(game:HttpGet("https://pastebin.com/raw/ZKGE4vvg"))()
          Rayfield:Notify({
            Title = "Script Executed",
            Content = "Eclipse Hub with premium executed successfully.",
@@ -148,7 +148,7 @@ local infiniteButton = ScriptsTab:CreateButton({
 local eclipseButton = ScriptsTab:CreateButton({
       Name = "Eclipse Hub",
       Callback = function()
-         loadstring(game:HttpGet("https://pastebin.com/raw/TA6rDXnU"))()
+         loadstring(game:HttpGet("https://pastebin.com/raw/ZfeiLMzr"))()
          Rayfield:Notify({
             Title = "Script Executed",
             Content = "Eclipse Hub executed successfully.",
