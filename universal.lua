@@ -119,7 +119,7 @@ local premEclipse = MiscTab:CreateInput({
       CurrentValue = "",
       PlaceholderText = "Enter Key",
       RemoveTextAfterFocusLost = false,
-      Flag = "eclipsePremKey",
+      Flag = "",
       Callback = function(Text)
          getgenv().mainKey = Text
          loadstring(game:HttpGet("https://pastebin.com/raw/ZKGE4vvg"))()
