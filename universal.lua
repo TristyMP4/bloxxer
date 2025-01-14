@@ -209,4 +209,4 @@ function universal()
   Rayfield:LoadConfiguration()
   print("hub loaded")
 
-  return Rayfield, Window, ScriptsTab notifDuration
+  return Rayfield, Window, ScriptsTab, notifDuration
