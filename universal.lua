@@ -57,7 +57,7 @@ local walkspeedSlider = CharTab:CreateSlider({
       Increment = 1,
       Suffix = "WalkSpeed",
       CurrentValue = Players.LocalPlayer.Character.Humanoid.WalkSpeed,
-      Flag = "walkSpeed", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+      Flag = "", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
       Callback = function(Value)
             Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
       end,
@@ -69,7 +69,7 @@ local jumpPowerSlider = CharTab:CreateSlider({
       Increment = 1,
       Suffix = jumpMeasurement,
       CurrentValue = Players.LocalPlayer.Character.Humanoid[jumpMeasurement],
-      Flag = "jumpPower", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+      Flag = "", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
       Callback = function(Value)
          Players.LocalPlayer.Character.Humanoid[jumpMeasurement] = Value
       end,
