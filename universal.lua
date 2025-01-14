@@ -112,24 +112,6 @@ local autoYield = MiscTab:CreateToggle({
             loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()   
       end,
 })
-   
-local premEclipse = MiscTab:CreateInput({
-      Name = "Eclipse Prem Key",
-      CurrentValue = "",
-      PlaceholderText = "Enter Key",
-      RemoveTextAfterFocusLost = false,
-      Flag = "",
-      Callback = function(Text)
-         getgenv().mainKey = Text
-         loadstring(game:HttpGet("https://pastebin.com/raw/ZKGE4vvg"))()
-         Rayfield:Notify({
-           Title = "Script Executed",
-           Content = "Eclipse Hub with premium executed successfully.",
-           Duration = notifDuration,
-           Image = "check",
-        })
-      end,
-})
 
 local FunScripts = ScriptsTab:CreateSection("Fun")
    
@@ -140,19 +122,6 @@ local infiniteButton = ScriptsTab:CreateButton({
          Rayfield:Notify({
             Title = "Script Executed",
             Content = "Infinite Yield executed successfully.",
-            Duration = notifDuration,
-            Image = "check",
-         })
-      end,
-})
-   
-local eclipseButton = ScriptsTab:CreateButton({
-      Name = "Eclipse Hub",
-      Callback = function()
-         loadstring(game:HttpGet("https://pastebin.com/raw/ZfeiLMzr"))()
-         Rayfield:Notify({
-            Title = "Script Executed",
-            Content = "Eclipse Hub executed successfully.",
             Duration = notifDuration,
             Image = "check",
          })
