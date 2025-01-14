@@ -210,4 +210,4 @@ local lunarButton = ScriptsTab:CreateButton({
 Rayfield:LoadConfiguration()
 print("hub loaded")
 
-return Window, ScriptsTab, notifDuration
+return Rayfield, Window, ScriptsTab, notifDuration
