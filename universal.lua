@@ -4,8 +4,7 @@ local Players = game:GetService("Players")
 local notifDuration = 2
 local loadedKeys = loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys.lua"))()
 
-function universal()
-   local Window = Rayfield:CreateWindow({
+local Window = Rayfield:CreateWindow({
       Name = "BloxxerHub",
       Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
       LoadingTitle = "Initialising..",
