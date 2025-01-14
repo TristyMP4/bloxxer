@@ -119,5 +119,3 @@ local centerTeleport = GameTab:CreateButton({
          })
     end,
  })
-
-print("hub loaded")
