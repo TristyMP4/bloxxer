@@ -1,6 +1,6 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Players = game:GetService("Players")
-local hum = Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+local hum = Players.LocalPlayer.Character:FindFirstChild("Humanoid") or nil
 
 local notifDuration = 3.5
 local loadedKeys = loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys.lua"))()
