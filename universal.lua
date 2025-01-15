@@ -1,6 +1,6 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Players = game:GetService("Players")
-local hum = Players.LocalPlayer.Character:FindFirstAncestorWhichIsA("Humanoid")
+local hum = Players.LocalPlayer.Character:FindFirstChild("Humanoid")
 
 local notifDuration = 3.5
 local loadedKeys = loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys.lua"))()
@@ -46,16 +46,15 @@ local movementCheats = CharTab:CreateSection("Movement")
 
 if not hum then
       local noHum = CharTab:CreateLabel("Humanoid modifications such as: Walkspeed, or JumpPower are unavailable as you have no humanoid.", "ban", Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
-end
-   
-local jumpMeasurement = nil
-if game.StarterPlayer.CharacterUseJumpPower then
-      jumpMeasurement = "JumpPower"
 else
-      jumpMeasurement = "JumpHeight"
-end
-   
-local walkspeedSlider = CharTab:CreateSlider({
+   local jumpMeasurement = nil
+   if game.StarterPlayer.CharacterUseJumpPower then
+         jumpMeasurement = "JumpPower"
+   else
+         jumpMeasurement = "JumpHeight"
+   end
+
+   local walkspeedSlider = CharTab:CreateSlider({
       Name = "WalkSpeed",
       Range = {10, 500},
       Increment = 1,
@@ -65,9 +64,8 @@ local walkspeedSlider = CharTab:CreateSlider({
       Callback = function(Value)
             hum.WalkSpeed = Value
       end,
-})
-   
-local jumpPowerSlider = CharTab:CreateSlider({
+   })
+   local jumpPowerSlider = CharTab:CreateSlider({
       Name = "JumpPower",
       Range = {10, 500},
       Increment = 1,
@@ -77,7 +75,8 @@ local jumpPowerSlider = CharTab:CreateSlider({
       Callback = function(Value)
          hum[jumpMeasurement] = Value
       end,
-})
+   })
+end
    
 local tptoPlayer = CharTab:CreateInput({
       Name = "Teleport to Player",
