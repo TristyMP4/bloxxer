@@ -3,7 +3,6 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local GameTab = Window:CreateTab("Game", "gamepad-2")
-local blockCheats = GameTab:CreateSection("Lucky Blocks")
 
 print(game.PlaceId)
 
