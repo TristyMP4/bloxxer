@@ -1,5 +1,6 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Players = game:GetService("Players")
+local hum = Players.LocalPlayer.Character:WaitForChild("Humanoid")
 
 local notifDuration = 3.5
 local loadedKeys = loadstring(game:HttpGet("https://raw.githubusercontent.com/TristyMP4/bloxxer/refs/heads/main/keys.lua"))()
@@ -42,6 +43,10 @@ local CharTab = Window:CreateTab("Character", "user") -- Title, Image
 local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
 local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
 local movementCheats = CharTab:CreateSection("Movement")
+
+if not hum then
+      local noHum = CharTab:CreateLabel("Humanoid modifications such as: Walkspeed, or JumpPower are unavailable as you have no humanoid.", "ban", Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
+end
    
 local jumpMeasurement = nil
 if game.StarterPlayer.CharacterUseJumpPower then
@@ -55,10 +60,10 @@ local walkspeedSlider = CharTab:CreateSlider({
       Range = {10, 500},
       Increment = 1,
       Suffix = "WalkSpeed",
-      CurrentValue = Players.LocalPlayer.Character.Humanoid.WalkSpeed,
+      CurrentValue = hum.WalkSpeed,
       Flag = "", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
       Callback = function(Value)
-            Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+            hum.WalkSpeed = Value
       end,
 })
    
@@ -67,10 +72,10 @@ local jumpPowerSlider = CharTab:CreateSlider({
       Range = {10, 500},
       Increment = 1,
       Suffix = jumpMeasurement,
-      CurrentValue = Players.LocalPlayer.Character.Humanoid[jumpMeasurement],
+      CurrentValue = hum[jumpMeasurement],
       Flag = "", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
       Callback = function(Value)
-         Players.LocalPlayer.Character.Humanoid[jumpMeasurement] = Value
+         hum[jumpMeasurement] = Value
       end,
 })
    
