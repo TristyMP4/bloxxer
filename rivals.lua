@@ -16,7 +16,7 @@ Rayfield:Notify({
 local scriptButton = GameTab:CreateButton({
    Name = "8BIT OP Script",
    Callback = function()
-        loadstring(game:HttpGet("https://x8-bit.web.app/scripts/rival_c1.lua"))()
+      loadstring(game:HttpGet("https://dev-8-bit.pantheonsite.io/scripts/?script=rivalsv3.lua"))()
    end,
 })
 
