@@ -48,7 +48,7 @@ local multiGalaxyBlock = GameTab:CreateInput({
    Flag = "multipleGalaxyBlock",
    Callback = function(Text)
       for _ = 1,tonumber(Text) do
-         ReplicatedStorage.SpawnGalaxyBlockFireServer()
+         ReplicatedStorage.SpawnGalaxyBlock:FireServer()
       end
 	Rayfield:Notify({
             Title = "Script Executed",
@@ -157,4 +157,5 @@ local centerTeleport = GameTab:CreateButton({
          })
     end,
  })
+
 
