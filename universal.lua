@@ -45,7 +45,6 @@ local Window = Rayfield:CreateWindow({
 local CharTab = Window:CreateTab("Character", "user") -- Title, Image
 local ScriptsTab = Window:CreateTab("Scripts", "scroll") -- Title, Image
 local MiscTab = Window:CreateTab("Misc", "settings") -- Title, Image
-local movementCheats = CharTab:CreateSection("Movement")
 
 if not hum then
       local noHum = CharTab:CreateLabel("Humanoid modifications such as: Walkspeed, or JumpPower are unavailable as you have no humanoid.", "ban", Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
