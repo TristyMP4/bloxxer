@@ -161,6 +161,19 @@ local lunarButton = ScriptsTab:CreateButton({
 })
 
 local MiscScripts = ScriptsTab:CreateSection("Miscellaneous")
+
+local aimbotButton = ScriptsTab:CreateButton({
+      Name = "Universal Aimbot & ESP",
+      Callback = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/ttwizz/Open-Aimbot/master/source.lua", true))()
+         Rayfield:Notify({
+            Title = "Script Executed",
+            Content = "Universal Aimbot & ESP executed successfully.",
+            Duration = notifDuration,
+            Image = "check",
+         })
+      end,
+})
   
 Rayfield:LoadConfiguration()
 print("hub loaded")
