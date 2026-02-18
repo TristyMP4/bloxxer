@@ -27,6 +27,38 @@ local superBlock = GameTab:CreateButton({
    end,
 })
 
+local galaxyBlock = GameTab:CreateButton({
+   Name = "Give Galaxy Block",
+   Callback = function()
+        ReplicatedStorage.SpawnGalaxyBlock:FireServer()
+        Rayfield:Notify({
+            Title = "Script Executed",
+            Content = "Spawned Galaxay Block successfully.",
+            Duration = notifDuration,
+            Image = "check",
+         })
+   end,
+})
+
+local multiGalaxyBlock = GameTab:CreateInput({
+   Name = "Give Multiple Galaxy Blocks",
+   CurrentValue = "5",
+   PlaceholderText = "5",
+   RemoveTextAfterFocusLost = false,
+   Flag = "multipleGalaxyBlock",
+   Callback = function(Text)
+      for _ = 1,tonumber(Text) do
+         ReplicatedStorage.SpawnGalaxyBlockFireServer()
+      end
+	Rayfield:Notify({
+            Title = "Script Executed",
+            Content = "Spawned " .. tonumber(Text) .. " Galaxy Blocks successfully.",
+            Duration = notifDuration,
+            Image = "check",
+         })
+   end,
+})
+
 local multiSuperBlock = GameTab:CreateInput({
    Name = "Give Multiple Super Block",
    CurrentValue = "5",
@@ -125,3 +157,4 @@ local centerTeleport = GameTab:CreateButton({
          })
     end,
  })
+
